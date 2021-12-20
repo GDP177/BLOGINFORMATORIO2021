@@ -1,0 +1,9 @@
+<form method="POST" id="form-login" action="{% url 'login' %}">
+	{% csrf_token %}
+
+	<input placeholder="usuario" name="username" id="username" type="text">
+	<input placeholder="pass" name="password" id="password" type="password">
+
+	<button onclick="document.getElementById('form-login').submit();"> Login</button>
+</form>	
+
