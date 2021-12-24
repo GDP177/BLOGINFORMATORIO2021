@@ -45,6 +45,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries': {
+                    'staticfiles': 'django.templatetags.static',
+                }
         },
     },
 ]
@@ -65,12 +68,10 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
-AUTH_USER_MODEL='users.usuario'
 
-from django.urls import reverse_lazy
 
-LOGIN_URL = reverse_lazy('login')
-LOGIN_REDIRECT_URL = reverse_lazy('lista')
+
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -90,9 +91,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ar'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Argentina/Buenos_Aires'
 
 USE_I18N = True
 
@@ -103,6 +104,19 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+from django.conf import settings
+from django.conf.urls.static import static
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS =  (os.path.join(os.path.dirname(BASE_DIR),'static'),)
+STATICFILES_DIRS = (os.path.join(os.path.dirname(BASE_DIR),'static'),)
+
+VENV_PATH = os.path.dirname(BASE_DIR)
+STATIC_ROOT = os.path.join(VENV_PATH, 'static_root')
+
+
+
+from django.urls import reverse_lazy
+
+AUTH_USER_MODEL='users.Usuario'
+LOGIN_URL = reverse_lazy('login')
+LOGIN_REDIRECT_URL = reverse_lazy('lista')
