@@ -24,6 +24,8 @@ class CrearPost(CreateView):
 			model = Post
 			form_class=PostForm
 			success_url = '/posts'
+			template_name = 'posts/post_form.html'
+     	
 
 class UpdatePost(UpdateView):
 		model = Post
