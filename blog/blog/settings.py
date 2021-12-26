@@ -137,4 +137,4 @@ from django.urls import reverse_lazy
 
 AUTH_USER_MODEL='users.Usuario'
 LOGIN_URL = reverse_lazy('login')
-LOGIN_REDIRECT_URL = reverse_lazy('lista')
+LOGIN_REDIRECT_URL = reverse_lazy('posts')
